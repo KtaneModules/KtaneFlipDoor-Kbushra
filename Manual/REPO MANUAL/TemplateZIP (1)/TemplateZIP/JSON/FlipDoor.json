@@ -1,0 +1,17 @@
+{
+  "Author": "That one kid",
+  "Compatibility": "Compatible",
+  "DefuserDifficulty": "Easy",
+  "Description": "Use edgework to open a door or two (and maybe a button) Tags: doors, illogical, random buttons, edgework",
+  "ExpertDifficulty": "Medium",
+  "ModuleID": "FlipDoor",
+  "Name": "The Door",
+  "Origin": "Mods",
+  "Published": "2022-12-31",
+  "SortKey": "DOOR",
+  "SourceUrl": "?",
+  "Souvenir": { "Status": "NotACandidate" },
+  "SteamID": "?",
+  "Symbol": "Tdor",
+  "Type": "Regular"
+}
