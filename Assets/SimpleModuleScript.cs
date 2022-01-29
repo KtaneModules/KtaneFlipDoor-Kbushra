@@ -204,16 +204,8 @@ public class SimpleModuleScript : MonoBehaviour {
 						incorrect = true;
 						Log ("Strike! There is a two factor code.");
 					}
-					if (info.GetSerialNumberLetters ().Any ("ILLOGICAL".Contains)) 
-					{
-						Log ("I guess this button doesnt care about being illogical...");
-					}
 					break;
 				case 1:
-					if (info.GetSerialNumberLetters ().Any ("ILLOGICAL".Contains)) {
-						incorrect = true;
-						Log ("Strike! This module is illogical and your bomb says that too.");
-					}
 					if (info.IsTwoFactorPresent () == false) 
 					{
 						incorrect = true;
