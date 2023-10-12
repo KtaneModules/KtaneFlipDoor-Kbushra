@@ -16,11 +16,10 @@ public class SimpleModuleScript : MonoBehaviour {
 	static int ModuleIdCounter = 1;
 	int ModuleId;
 
-	public AudioSource correct;
-
-	public int ans = 0;
-	public int StageCur = 1;
-	public int StageLim = 4;
+	private int ans = 0;
+	private int StageCur = 1;
+	private int StageLim = 4;
+	private int strikecount = 0;
 
 	bool _isSolved = false;
 	bool incorrect = false;
@@ -58,44 +57,54 @@ public class SimpleModuleScript : MonoBehaviour {
 		Invoke ("AnsAdder", 0);
 	}
 
+	void Update()
+	{
+		int curstrikecount = info.GetStrikes ();
+		if (curstrikecount != strikecount) 
+		{
+			strikecount = curstrikecount;
+			AnsAdder ();
+		}
+	}
+
 	void AnsAdder()
 	{
 		if (info.GetStrikes() > 0) 
 		{
 				ans = ans % 5;
-			Log ("ans mod 5");
+			Log ("answer mod 5");
 		}
 			if (info.GetStrikes() > 2) 
 		{
 				ans = ans + 3;
-			Log ("ans plus 3");
+			Log ("answer plus 3");
 		}
 			if (info.GetBatteryCount () > 4) 
 		{
 				ans = ans * 3;
-			Log ("ans times 3");
+			Log ("answer times 3");
 		}
 			if (info.GetBatteryHolderCount () > 2) 
 		{
 				ans = ans - 2;
-			Log ("ans take away 2");
+			Log ("answer take away 2");
 		}
 		if (info.GetPortCount () > 1) 
 		{
 			ans = ans * 4;
-			Log ("ans times 4");
+			Log ("answer times 4");
 		}
 		if (info.GetPortPlateCount () > 2) 
 		{
 			ans = ans * 2;
-			Log ("ans times 2");
+			Log ("answer times 2");
 		}
+		Debug.LogFormat("[The Door #{0}] Answer is now {1}", ModuleId, ans);
 	}
 
 
 	void door(KMSelectable pressedButton)
 	{
-		GetComponent<KMAudio>().PlayGameSoundAtTransformWithRef(KMSoundOverride.SoundEffect.ButtonPress, transform);
 		int buttonPosition = new int();
 		for(int i = 0; i < Doors.Length; i++)
 		{
@@ -106,6 +115,8 @@ public class SimpleModuleScript : MonoBehaviour {
 			}
 		}
 
+		audio.PlayGameSoundAtTransform (KMSoundOverride.SoundEffect.ButtonPress, Doors [buttonPosition].transform);
+		Doors [buttonPosition].AddInteractionPunch ();
 		if (StageCur > 0) 
 		{
 			if (StageCur < 2) 
@@ -136,7 +147,6 @@ public class SimpleModuleScript : MonoBehaviour {
 				}
 				else
 				{
-					correct.Play ();
 					StageCur = StageCur + 1;
 					Log ("stage increase");
 				}
@@ -171,7 +181,6 @@ public class SimpleModuleScript : MonoBehaviour {
 				}
 				else
 				{
-					correct.Play ();
 					StageCur = StageCur + 1;
 					Log ("stage increase");
 				}
@@ -181,7 +190,6 @@ public class SimpleModuleScript : MonoBehaviour {
 
 	void buttons(KMSelectable pressedButton)
 	{
-		GetComponent<KMAudio>().PlayGameSoundAtTransformWithRef(KMSoundOverride.SoundEffect.ButtonPress, transform);
 		int buttonPosition = new int();
 		for(int i = 0; i < Buttons.Length; i++)
 		{
@@ -192,6 +200,8 @@ public class SimpleModuleScript : MonoBehaviour {
 			}
 		}
 
+		audio.PlayGameSoundAtTransform (KMSoundOverride.SoundEffect.ButtonPress, Buttons [buttonPosition].transform);
+		Buttons [buttonPosition].AddInteractionPunch ();
 		if (StageCur < 3) 
 		{
 			if (StageCur > 1) 
@@ -221,7 +231,6 @@ public class SimpleModuleScript : MonoBehaviour {
 				}
 				else
 				{
-					correct.Play ();
 					StageCur = StageCur + 1;
 					Log ("stage increase");
 				}
@@ -230,7 +239,6 @@ public class SimpleModuleScript : MonoBehaviour {
 		}
 		if (StageCur == StageLim) 
 		{
-			correct.Play ();
 			module.HandlePass ();
 			Log ("MODULE DEFUSED!");
 		}

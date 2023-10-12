@@ -415,7 +415,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1882865472051216}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0099, y: 0.02, z: 0.0212}
+  m_LocalPosition: {x: 0.001, y: 0.02, z: 0.012}
   m_LocalScale: {x: 0.015987063, y: 0.012190134, z: 0.015987063}
   m_Children:
   - {fileID: 4024329891301442}
@@ -489,7 +489,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1298941175352986}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0231, y: 0.024, z: 0}
+  m_LocalPosition: {x: 0.05, y: 0.024, z: -0.022}
   m_LocalScale: {x: 0.04, y: 0.01268, z: 0.099999994}
   m_Children:
   - {fileID: 4752874938646798}
@@ -506,7 +506,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1779026563490132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.044, y: 0.024, z: 0}
+  m_LocalPosition: {x: -0.046, y: 0.024, z: 0.015}
   m_LocalScale: {x: 0.04, y: 0.012678051, z: 0.1}
   m_Children:
   - {fileID: 4265771450312208}
@@ -575,7 +575,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1482170561782276}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0099, y: 0.02, z: -0.0178}
+  m_LocalPosition: {x: 0.0010000002, y: 0.02, z: -0.026999999}
   m_LocalScale: {x: 0.01599, y: 0.01219, z: 0.01599}
   m_Children:
   - {fileID: 4035208212312452}
@@ -913,7 +913,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 80f00764ebfb1e14d9660b95f07f1c60, type: 3}
+  - {fileID: 2100000, guid: 61261fe6f9e15e44bbb8087b04036b17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1422,7 +1422,7 @@ TextMesh:
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 25
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 80f00764ebfb1e14d9660b95f07f1c60, type: 3}
@@ -1443,7 +1443,7 @@ TextMesh:
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 0
+  m_FontSize: 25
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: 80f00764ebfb1e14d9660b95f07f1c60, type: 3}
@@ -1825,10 +1825,6 @@ MonoBehaviour:
   Buttons:
   - {fileID: 114208719214006614}
   - {fileID: 114137738898380244}
-  correct: {fileID: 82598170115433906}
-  ans: 0
-  StageCur: 0
-  StageLim: 0
 --- !u!114 &114924706776804344
 MonoBehaviour:
   m_ObjectHideFlags: 1

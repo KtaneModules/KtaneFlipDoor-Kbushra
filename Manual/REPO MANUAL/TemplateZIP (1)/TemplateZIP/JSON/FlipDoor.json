@@ -7,11 +7,11 @@
   "ModuleID": "FlipDoor",
   "Name": "The Door",
   "Origin": "Mods",
-  "Published": "2022-12-31",
+  "Published": "2022-01-29",
   "SortKey": "DOOR",
-  "SourceUrl": "?",
+  "SourceUrl": "https://github.com/Kbushra/KtaneFlipDoor",
   "Souvenir": { "Status": "NotACandidate" },
-  "SteamID": "?",
+  "SteamID": "2734391870",
   "Symbol": "Tdor",
   "Type": "Regular"
 }

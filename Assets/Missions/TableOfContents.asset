@@ -21,3 +21,6 @@ MonoBehaviour:
   - Title: All together
     MissionIDs:
     - mission 2
+  - Title: Factory
+    MissionIDs:
+    - mission 3

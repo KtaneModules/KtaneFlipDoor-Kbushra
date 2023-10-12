@@ -14,8 +14,8 @@ MonoBehaviour:
   id: FlipDoor
   title: The Door
   author: ThatOneKid
-  description: ITS A DOOR! HOW ARE YOU GOING TO GET THROUGH IT? By defusing a bomb,
-    of course!
+  description: "ITS A DOOR! HOW ARE YOU GOING TO GET THROUGH IT? By defusing a bomb,
+    of course!\n\r\nGithub: https://github.com/Kbushra/KtaneFlipDoor\r"
   version: 1.0
   outputFolder: build
   previewImage: {fileID: 2800000, guid: d48924678adbaae4c966d4890747889b, type: 3}
