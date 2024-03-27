@@ -248,5 +248,56 @@ public class SimpleModuleScript : MonoBehaviour {
 	{
 		Debug.LogFormat("[The Door #{0}] {1}", ModuleId, message);
 	}
+
+	//twitch plays
+	#pragma warning disable 414
+	private readonly string TwitchHelpMessage = @"!{0} left/right/1/2 [Presses the specified door/button] | Presses can be chained with spaces";
+	#pragma warning restore 414
+
+	IEnumerator ProcessTwitchCommand(string command)
+	{
+		string[] parameters = command.Split(' ');
+		for (int i = 0; i < parameters.Length; i++)
+		{
+			if (!parameters[i].ToLowerInvariant().EqualsAny("left", "right", "1", "2"))
+			{
+				yield return "sendtochaterror The specified door/button '" + parameters[i] + "' is invalid!";
+				yield break;
+			}
+		}
+		yield return null;
+		for (int i = 0; i < parameters.Length; i++)
+		{
+			if (parameters[i].EqualsIgnoreCase("left"))
+				Doors[0].OnInteract();
+			else if (parameters[i].EqualsIgnoreCase("right"))
+				Doors[1].OnInteract();
+			else if (parameters[i].Equals("1"))
+				Buttons[0].OnInteract();
+			else
+				Buttons[1].OnInteract();
+			yield return new WaitForSeconds(.1f);
+		}
+	}
+
+	IEnumerator TwitchHandleForcedSolve()
+	{
+		if (StageCur == 1)
+		{
+			Doors[ans <= 15 ? 0 : 1].OnInteract();
+			yield return new WaitForSeconds(.1f);
+		}
+		if (StageCur == 2)
+		{
+			Buttons[info.IsTwoFactorPresent() ? 1 : 0].OnInteract();
+			yield return new WaitForSeconds(.1f);
+		}
+		if (StageCur == 3)
+		{
+			Doors[ans <= 30 ? 0 : 1].OnInteract();
+			yield return new WaitForSeconds(.1f);
+		}
+		Buttons[0].OnInteract();
+	}
 }
 
